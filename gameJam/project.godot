@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="scoreSpace"
+run/main_scene="res://scenes/MainMenu/Main_Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [display]
