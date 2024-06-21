@@ -14,6 +14,25 @@ config/name="scoreSpace"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="scoreSpace"
+
+[layer_names]
+
+2d_physics/layer_1="Enviroment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Interactable"
+2d_physics/layer_4="Pickup"
+2d_physics/layer_5="Card"
+2d_physics/layer_6="God"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
