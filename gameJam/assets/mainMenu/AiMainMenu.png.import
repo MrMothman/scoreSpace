@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpfx1j2bw7351"
-path="res://.godot/imported/AIbackground.png-a13a1b3794865f266d797b187b7ac125.ctex"
+uid="uid://tiboq1i73bdt"
+path="res://.godot/imported/AiMainMenu.png-fab2c169259aefc03126487445519f94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/AIbackground.png"
-dest_files=["res://.godot/imported/AIbackground.png-a13a1b3794865f266d797b187b7ac125.ctex"]
+source_file="res://assets/mainMenu/AiMainMenu.png"
+dest_files=["res://.godot/imported/AiMainMenu.png-fab2c169259aefc03126487445519f94.ctex"]
 
 [params]
 
