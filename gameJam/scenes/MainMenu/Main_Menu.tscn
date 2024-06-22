@@ -71,6 +71,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Transport the Gods"
 
+[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
 [node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
