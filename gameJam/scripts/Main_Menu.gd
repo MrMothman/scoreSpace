@@ -1,6 +1,7 @@
 class_name  MainMenu
 extends Control
 
+
 @onready var StartButton = $MarginContainer/HBoxContainer/VBoxContainer/StartButton as Button
 @onready var ExitButton = $MarginContainer/HBoxContainer/VBoxContainer/ExitButton as Button
 @export var StartLevel = preload("res://scenes/levels/level.tscn") as PackedScene
