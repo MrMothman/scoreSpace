@@ -5,8 +5,6 @@ extends Camera2D
 func _process(delta):
 	print(position)
 	if Input.is_action_pressed("ui_right"):
-		if position.x < 1600:
 			position.x += 1000*delta
 	if Input.is_action_pressed("ui_left"):
-		if position.x > -400:
 			position.x -= 1000*delta
