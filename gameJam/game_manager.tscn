@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo4hjvr81uuy0"]
+[gd_scene load_steps=5 format=3 uid="uid://bo4hjvr81uuy0"]
 
 [ext_resource type="PackedScene" uid="uid://ggjfl18rxg44" path="res://scenes/levels/level.tscn" id="1_falwp"]
 [ext_resource type="PackedScene" uid="uid://dv8kbttbic6n6" path="res://scenes/MainMenu/Main_Menu.tscn" id="2_4t8ii"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="3_8you4"]
+[ext_resource type="PackedScene" uid="uid://ct5tmoaw5jvmy" path="res://train_v_1.tscn" id="4_aursg"]
 
 [node name="gameManager" type="Node2D"]
 
@@ -24,3 +25,5 @@ position_smoothing_speed = 10.0
 drag_left_margin = 0.05
 drag_right_margin = 0.05
 script = ExtResource("3_8you4")
+
+[node name="Train_v1" parent="." instance=ExtResource("4_aursg")]
