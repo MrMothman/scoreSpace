@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv8kbttbic6n6"]
+[gd_scene load_steps=4 format=3 uid="uid://dv8kbttbic6n6"]
 
 [ext_resource type="Script" path="res://scripts/Main_Menu.gd" id="1_n74si"]
 [ext_resource type="Texture2D" uid="uid://tiboq1i73bdt" path="res://assets/mainMenu/AiMainMenu.png" id="2_hklh4"]
+[ext_resource type="PackedScene" uid="uid://2bwdly1u8gxa" path="res://scenes/OptionsMenu/options_menu.tscn" id="3_8q7js"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -71,6 +72,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Transport the Gods"
 
+[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
 [node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="Options_menu" parent="." instance=ExtResource("3_8q7js")]
+visible = false
+layout_mode = 1
