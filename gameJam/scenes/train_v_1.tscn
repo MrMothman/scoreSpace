@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct5tmoaw5jvmy"]
+[gd_scene load_steps=8 format=3 uid="uid://ct5tmoaw5jvmy"]
+
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="1_kg3w2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_sy38u"]
 a = Vector2(-231, -16)
@@ -101,3 +103,11 @@ shape = SubResource("SegmentShape2D_awjsk")
 [node name="CollisionShapeHallTop2" type="CollisionShape2D" parent="Traincar_2"]
 position = Vector2(601, 272)
 shape = SubResource("SegmentShape2D_jdcol")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 270)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_left_margin = 0.05
+drag_right_margin = 0.05
+script = ExtResource("1_kg3w2")
