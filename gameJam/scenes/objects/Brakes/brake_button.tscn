@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvtx38jqj2f17"]
+
+[ext_resource type="Script" path="res://scripts/BoatCars/BrakeButton.gd" id="1_adwr1"]
+
+[node name="BrakeButton" type="CheckButton"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -34.5
+offset_right = 80.0
+offset_bottom = 34.5
+grow_vertical = 2
+tooltip_text = "Switch For Breaks"
+toggle_mode = false
+action_mode = 0
+script = ExtResource("1_adwr1")
