@@ -1,6 +1,5 @@
 extends Node
 class_name MapGraph
-#notes
 
 enum types {MAINLAND,b,c,d}
 
@@ -16,7 +15,8 @@ enum types {MAINLAND,b,c,d}
 	Ports.new("I9", types.c, Vector2(1,1)): [10],
 	Ports.new("I10", types.d, Vector2(1,1)): [0,11],
 	Ports.new("I11", types.c, Vector2(1,1)): [9,11],
-	Ports.new("I12", types.b, Vector2(1,1)): [0],
+	Ports.new("I12", types.b, Vector2(1,1)): [0]
+}
 
 
 func _ready():
