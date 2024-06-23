@@ -6,8 +6,10 @@
 [node name="gameManager" type="Node2D"]
 
 [node name="level" parent="." instance=ExtResource("1_falwp")]
+visible = false
 
 [node name="MainMenu" parent="." instance=ExtResource("2_4t8ii")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
