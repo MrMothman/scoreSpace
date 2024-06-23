@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cahpd2je1xfi"]
+
+[ext_resource type="Script" path="res://scripts/UI/SailingProgress.gd" id="1_em2r2"]
+
+[node name="SailingProgress" type="ProgressBar"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 258.0
+offset_right = -293.0
+offset_bottom = 27.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+rounded = true
+show_percentage = false
+script = ExtResource("1_em2r2")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressTimer" type="Timer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5

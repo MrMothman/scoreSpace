@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb67kpkgcgu0k"]
+
+[ext_resource type="Script" path="res://scripts/Card/hand.gd" id="1_54k15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d03n"]
+radius = 900.0
+
+[node name="hand" type="Node2D"]
+script = ExtResource("1_54k15")
+hand_radius = 200
+angle_limit = 25.0
+max_spread_angle = 5.0
+
+[node name="debug" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4d03n")
