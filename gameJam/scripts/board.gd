@@ -1,31 +1,35 @@
 extends Control
-@onready var panel = $Panel
+
 @onready var ap = $AnimationPlayer
-
-var openfinnished: bool = false
+@onready var is_closed : bool = true
+@onready var openfinnished: bool = false
 @onready var spawn = $Panel/spawn
+@onready var boardTimer = $board_closing_timer
 
-@onready var coal_card : PackedScene = preload("res://scenes/objects/cards/coalCard.tscn")
+
+func _ready():
+	boardTimer.one_shot = true
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "mouse_on":
 		openfinnished = true
-		
-		
-
-
-func _on_button_pressed():
-	var card = coal_card.instantiate()
-	spawn.add_child(card)
-
 
 func _on_area_2d_mouse_entered():
-	openfinnished = false
-	ap.play("mouse_on")
+	if is_closed:
+		ap.play("mouse_on")
+		if boardTimer.is_stopped():
+			boardTimer.start(.5)
 
-
-func _on_area_2d_mouse_exited():
+func _on_exit_switch_mouse_entered():
 	if openfinnished:
 		ap.play("mouse_off")
+		if boardTimer.is_stopped():
+			boardTimer.start(.5)
 
-
+func _on_board_closing_timer_timeout():
+	if is_closed == true:
+		openfinnished = true
+		is_closed = false
+	elif is_closed == false:
+		openfinnished = false
+		is_closed = true
