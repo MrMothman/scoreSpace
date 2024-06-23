@@ -1,6 +1,8 @@
 @tool
 class_name Hand extends Node2D
 
+signal card_activated(card: UsableCard)
+
 @export var hand_radius : int = 900
 @export var angle_limit: float = 50
 @export var max_spread_angle: float = 7
@@ -54,8 +56,9 @@ func _manage_unhighlighting_cards(card: Node2D):
 
 func _input(event):
 	if event.is_action_pressed("mouse_click") && current_selected_card >= 0:
-		remove_card(current_selected_card)
+		var card: UsableCard = remove_card(current_selected_card)
 		current_selected_card = -1
+		card_activated.emit(card)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

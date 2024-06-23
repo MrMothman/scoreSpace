@@ -1,6 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct5tmoaw5jvmy"]
-
-[ext_resource type="PackedScene" uid="uid://chmseeao52po7" path="res://trainCar.tscn" id="1_lkxgk"]
+[gd_scene load_steps=7 format=3 uid="uid://chmseeao52po7"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_sy38u"]
 a = Vector2(-231, -16)
@@ -24,45 +22,41 @@ b = Vector2(64, 0)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jdcol"]
 b = Vector2(64, 0)
 
-[node name="Train_v1" type="Node2D"]
+[node name="Traincar_1" type="Area2D"]
+position = Vector2(295, 48)
 
-[node name="Traincar_1" parent="." instance=ExtResource("1_lkxgk")]
-
-[node name="Traincar_2" type="Area2D" parent="."]
-position = Vector2(1191, 48)
-
-[node name="CollisionShapeTop" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)
 shape = SubResource("SegmentShape2D_sy38u")
 
-[node name="CollisionShapeBottom" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeBottom" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 440)
 shape = SubResource("SegmentShape2D_2b6eo")
 
-[node name="CollisionShapeLeftTop" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeLeftTop" type="CollisionShape2D" parent="."]
 position = Vector2(-239, 175)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_65vlb")
 
-[node name="CollisionShapeLeftBottom" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeLeftBottom" type="CollisionShape2D" parent="."]
 position = Vector2(-239, 251)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_ho6oh")
 
-[node name="CollisionShapeRightTop" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeRightTop" type="CollisionShape2D" parent="."]
 position = Vector2(593, 175)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_65vlb")
 
-[node name="CollisionShapeRightBottom" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeRightBottom" type="CollisionShape2D" parent="."]
 position = Vector2(593, 251)
 rotation = 1.5708
 shape = SubResource("SegmentShape2D_ho6oh")
 
-[node name="CollisionShapeHallTop" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeHallTop" type="CollisionShape2D" parent="."]
 position = Vector2(601, 144)
 shape = SubResource("SegmentShape2D_awjsk")
 
-[node name="CollisionShapeHallTop2" type="CollisionShape2D" parent="Traincar_2"]
+[node name="CollisionShapeHallTop2" type="CollisionShape2D" parent="."]
 position = Vector2(601, 272)
 shape = SubResource("SegmentShape2D_jdcol")
