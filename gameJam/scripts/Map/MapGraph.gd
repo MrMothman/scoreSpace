@@ -1,7 +1,9 @@
 extends Node
 class_name MapGraph
+#notes
 
 enum types {MAINLAND,b,c,d}
+
 
 @export var map = {Ports.new("I1", types.MAINLAND, Vector2(1,1)): [1,2],
 	Ports.new("I2", types.b, Vector2(1,1)): [3],
