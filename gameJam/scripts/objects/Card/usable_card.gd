@@ -6,13 +6,11 @@ signal mouse_exited(card: Card)
 
 #endregion
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var card = $card
+
+func get_card_name():
+	return card.get_card_name()
 
 func _on_card_mouse_entered(card: Card):
 	mouse_entered.emit(self)

@@ -17,7 +17,8 @@ texture = ExtResource("1_h5c0q")
 [node name="cardImage" type="Node2D" parent="."]
 
 [node name="image" type="Sprite2D" parent="cardImage"]
-position = Vector2(0, -17)
+position = Vector2(-0.25, -17)
+scale = Vector2(1.00847, 1)
 
 [node name="TextBackground" type="Node2D" parent="."]
 
@@ -52,6 +53,7 @@ position = Vector2(0, 17)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_i40ef")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
