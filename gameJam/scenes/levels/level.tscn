@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://ggjfl18rxg44"]
+[gd_scene load_steps=2 format=3 uid="uid://ggjfl18rxg44"]
+
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="1_utk0s"]
 
 [node name="level" type="Node2D"]
+
+[node name="Background" type="TileMap" parent="."]
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 270)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+script = ExtResource("1_utk0s")
