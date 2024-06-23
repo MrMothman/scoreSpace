@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://23u7otk4fl5n"]
 
-[ext_resource type="Script" path="res://scenes/objects/cards/worship_card.gd" id="1_2v2cn"]
 [ext_resource type="PackedScene" uid="uid://kac6vgxq6nhd" path="res://scenes/objects/cards/card.tscn" id="1_4884g"]
+[ext_resource type="Script" path="res://scripts/objects/Card/usable_card.gd" id="1_vn2ky"]
 [ext_resource type="Texture2D" uid="uid://ba8b6nt3mnl7p" path="res://assets/cards/cardImages/worshipSymbol.png" id="2_g0c1o"]
 [ext_resource type="Texture2D" uid="uid://m1pdtnactoc" path="res://assets/cards/ResourceTypes/GreenResource.png" id="3_thi8n"]
 
 [node name="worshipCard" type="Node2D"]
-script = ExtResource("1_2v2cn")
+script = ExtResource("1_vn2ky")
 
 [node name="card" parent="." instance=ExtResource("1_4884g")]
 card_name = "Worship"

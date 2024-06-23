@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd2q40jk3u0sr"]
+
+[ext_resource type="PackedScene" uid="uid://hnijtcifq8as" path="res://scenes/objects/board/board.tscn" id="1_just2"]
+[ext_resource type="PackedScene" uid="uid://chmseeao52po7" path="res://trainCar.tscn" id="1_lgq3g"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Traincar_1" parent="." instance=ExtResource("1_lgq3g")]
+
+[node name="board" parent="." instance=ExtResource("1_just2")]

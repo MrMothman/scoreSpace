@@ -1,4 +1,3 @@
-@tool
 class_name Card extends Node2D
 
 @onready var image = $cardImage/image
@@ -19,6 +18,9 @@ func _ready():
 
 func _process(delta):
 	_update_graphics()
+	
+func get_card_name():
+	return card_name	
 	
 func set_values(_description: String, _cardImage: Texture, _resourceImage: Texture):
 	image.texture = _cardImage
