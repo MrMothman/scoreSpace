@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmkkd4agoxs0a"]
+
+[ext_resource type="Script" path="res://scripts/Map/PortSelect.gd" id="1_kdpat"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 843.0
+offset_top = 503.0
+offset_right = 883.0
+offset_bottom = 543.0
+script = ExtResource("1_kdpat")
+
+[node name="PortSelect" type="MenuButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.775
+anchor_top = -3.75
+anchor_right = 3.175
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 150.0
+offset_right = -20.0
+offset_bottom = -9.0
+text = "Select Port"
