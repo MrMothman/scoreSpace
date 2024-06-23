@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmcj1yen3snhv"]
+
+[ext_resource type="Script" path="res://scripts/UI/ScoreBoard.gd" id="1_ol32g"]
+
+[node name="ScoreBoard" type="CanvasLayer"]
+script = ExtResource("1_ol32g")
+
+[node name="scoreControl" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.081
+anchor_right = 0.151
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="scoreControl"]
+layout_mode = 1
+offset_right = 69.0
+offset_bottom = 23.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.814493, 0.9441, 0.998776, 1)
+theme_override_colors/font_shadow_color = Color(0.992581, 0.627898, 0.480505, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 28
+text = "Score: 800"
+uppercase = true
