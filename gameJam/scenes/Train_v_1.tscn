@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct5tmoaw5jvmy"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sy38u"]
+a = Vector2(-231, -16)
+b = Vector2(601, -16)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2b6eo"]
+a = Vector2(-230, -40)
+b = Vector2(602, -40)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_65vlb"]
+a = Vector2(97, -8)
+b = Vector2(225, -8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ho6oh"]
+a = Vector2(-235, -8)
+b = Vector2(-107, -8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_awjsk"]
+b = Vector2(64, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jdcol"]
+b = Vector2(64, 0)
+
+[node name="Train_v1" type="Node2D"]
+
+[node name="Traincar_1" type="Area2D" parent="."]
+position = Vector2(295, 48)
+
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(0, 32)
+shape = SubResource("SegmentShape2D_sy38u")
+
+[node name="CollisionShapeBottom" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(-1, 440)
+shape = SubResource("SegmentShape2D_2b6eo")
+
+[node name="CollisionShapeLeftTop" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(-239, 175)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_65vlb")
+
+[node name="CollisionShapeLeftBottom" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(-239, 251)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_ho6oh")
+
+[node name="CollisionShapeRightTop" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(593, 175)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_65vlb")
+
+[node name="CollisionShapeRightBottom" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(593, 251)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_ho6oh")
+
+[node name="CollisionShapeHallTop" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(601, 144)
+shape = SubResource("SegmentShape2D_awjsk")
+
+[node name="CollisionShapeHallTop2" type="CollisionShape2D" parent="Traincar_1"]
+position = Vector2(601, 272)
+shape = SubResource("SegmentShape2D_jdcol")
+
+[node name="Traincar_2" type="Area2D" parent="."]
+position = Vector2(1191, 48)
+
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(0, 32)
+shape = SubResource("SegmentShape2D_sy38u")
+
+[node name="CollisionShapeBottom" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(-1, 440)
+shape = SubResource("SegmentShape2D_2b6eo")
+
+[node name="CollisionShapeLeftTop" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(-239, 175)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_65vlb")
+
+[node name="CollisionShapeLeftBottom" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(-239, 251)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_ho6oh")
+
+[node name="CollisionShapeRightTop" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(593, 175)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_65vlb")
+
+[node name="CollisionShapeRightBottom" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(593, 251)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_ho6oh")
+
+[node name="CollisionShapeHallTop" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(601, 144)
+shape = SubResource("SegmentShape2D_awjsk")
+
+[node name="CollisionShapeHallTop2" type="CollisionShape2D" parent="Traincar_2"]
+position = Vector2(601, 272)
+shape = SubResource("SegmentShape2D_jdcol")
