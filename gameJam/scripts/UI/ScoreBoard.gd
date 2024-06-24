@@ -1,13 +1,20 @@
 extends CanvasLayer
 
 var score = 0
-
-func update_score(value):
-	#proper score logic is needed here
-	score += value
-	$scoreControl/Score.text = "Score: " + var_to_str(score)
-# Called when the node enters the scene tree for the first time.
+@onready var sailing_progress = $"../SailingProgress"
+@onready var score_label = $scoreControl/Score
 
 func _ready():
-	update_score(score)
+	if sailing_progress:
+		print("SailingProgress node found and connected.")
+		sailing_progress.connect("score_changed", Callable(self, "_on_score_changed"))
+	else:
+		print("Error: SailingProgress node not found.")
+	update_score(0)
 
+func _on_score_changed(value):
+	update_score(value)
+
+func update_score(value):
+	score += value
+	score_label.text = "Score: " + str(score)
