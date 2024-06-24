@@ -45,6 +45,7 @@ func _on_ProgressTimer_timeout():
 func _on_brake_button_pressed():
 	if value >= 90:
 		emit_signal("score_changed", 100)
+		value = 0
 		is_slowed_down = false
 	else:
 		emit_signal("score_changed", -10)
