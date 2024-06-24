@@ -5,6 +5,8 @@ extends Control
 @onready var StartButton = $MarginContainer/HBoxContainer/VBoxContainer/StartButton as Button
 @onready var ExitButton = $MarginContainer/HBoxContainer/VBoxContainer/ExitButton as Button
 @onready var OptionsButton = $MarginContainer/HBoxContainer/VBoxContainer/OptionsButton as Button
+@onready var scores_button = $MarginContainer/HBoxContainer/VBoxContainer/ScoresButton as Button
+@onready var TopScores = $TopScores
 @onready var Options_Menu = $Options_menu as Options_Menu
 @onready var margin_container = $MarginContainer as MarginContainer
 @export var StartLevel = preload("res://scenes/levels/level.tscn") as PackedScene
@@ -14,6 +16,15 @@ func _ready():
 
 func on_Start_press() -> void:
 	get_tree().change_scene_to_packed(StartLevel)
+	
+func on_scores_button_press() -> void:
+	margin_container.visible = false
+	TopScores.set_process(true)
+	TopScores.visible = true
+
+func on_sorces_button_Exit_press() -> void:
+	margin_container.visible = true
+	TopScores.visible = false
 
 func on_Options_press() -> void:
 	margin_container.visible = false
@@ -29,6 +40,8 @@ func on_OptionsExit_press() -> void:
 	
 func handle_connecting_signals() -> void:
 	StartButton.button_down.connect(on_Start_press)
+	scores_button.button_down.connect(on_scores_button_press)
+	TopScores.exit_Score_menu.connect(on_sorces_button_Exit_press)
 	OptionsButton.button_down.connect(on_Options_press)
 	ExitButton.button_down.connect(on_Exit_press)
 	Options_Menu.exit_options_menu.connect(on_OptionsExit_press)

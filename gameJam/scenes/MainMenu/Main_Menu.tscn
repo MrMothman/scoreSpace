@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv8kbttbic6n6"]
+[gd_scene load_steps=8 format=3 uid="uid://dv8kbttbic6n6"]
 
 [ext_resource type="Script" path="res://scripts/Menu/Main_Menu.gd" id="1_n74si"]
 [ext_resource type="Texture2D" uid="uid://cwugh46h2h15q" path="res://assets/mainMenu/FinalMap.PNG" id="2_o8ulh"]
 [ext_resource type="PackedScene" uid="uid://2bwdly1u8gxa" path="res://scenes/OptionsMenu/options_menu.tscn" id="3_8q7js"]
+[ext_resource type="PackedScene" uid="uid://b5raoyao2vyfg" path="res://scenes/ScoreBoard/top_scores.tscn" id="4_8tnno"]
 [ext_resource type="PackedScene" uid="uid://cahpd2je1xfi" path="res://scenes/UI/SailingProgress.tscn" id="4_gj1ma"]
 [ext_resource type="PackedScene" uid="uid://cvtx38jqj2f17" path="res://scenes/objects/Brakes/brake_button.tscn" id="5_33si6"]
 [ext_resource type="PackedScene" uid="uid://bmcj1yen3snhv" path="res://scenes/UI/score_board.tscn" id="6_jd66a"]
@@ -75,6 +76,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Transport the Gods"
 
+[node name="ScoresButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Top Scores"
+
 [node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
@@ -84,6 +89,10 @@ layout_mode = 2
 text = "Exit"
 
 [node name="Options_menu" parent="." instance=ExtResource("3_8q7js")]
+visible = false
+layout_mode = 1
+
+[node name="TopScores" parent="." instance=ExtResource("4_8tnno")]
 visible = false
 layout_mode = 1
 
