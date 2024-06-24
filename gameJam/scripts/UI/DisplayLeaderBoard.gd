@@ -1,15 +1,17 @@
-extends Control
+extends Leaderboard
 
 # Sample data for the leaderboard
-var leaderboard_data = [
-	{"rank": 1, "name": "Player1", "score": 1000},
-	{"rank": 2, "name": "Player2", "score": 900},
-	{"rank": 3, "name": "Player3", "score": 800}
-]
+#var leaderboard_data = [
+#	{"rank": 1, "name": "Player1", "score": 1000},
+#	{"rank": 2, "name": "Player2", "score": 900},
+#	{"rank": 3, "name": "Player3", "score": 800}
+#]
 
 func _ready():
 	# Reference to the container holding the leaderboard entries
 	var entries_container = $VBoxContainer/VBoxContainer
+	_authentication_request()
+	var leaderboard = leaderboard_data()
 
 	# Clear any existing children (for dynamic updates)
 	#entries_container.clear()
@@ -40,3 +42,7 @@ func _ready():
 		hbox.add_child(name)
 		hbox.add_child(score)
 		entries_container.add_child(hbox)
+
+
+func leaderboard_data():
+	
