@@ -1,19 +1,25 @@
-extends Control
+extends Leaderboard
 
 # Sample data for the leaderboard
-var leaderboard_data = [
-	{"rank": 1, "name": "Player1", "score": 1000},
-	{"rank": 2, "name": "Player2", "score": 900},
-	{"rank": 3, "name": "Player3", "score": 800}
-]
+#var leaderboard_data = [
+#	{"rank": 1, "name": "Player1", "score": 1000},
+#	{"rank": 2, "name": "Player2", "score": 900},
+#	{"rank": 3, "name": "Player3", "score": 800}
+#]
 
 func _ready():
 	# Reference to the container holding the leaderboard entries
-	var entries_container = $VBoxContainer/VBoxContainer
-
+	
+	#_authentication_request()
+	#_get_leaderboards()
+	_display()
+	
+	
 	# Clear any existing children (for dynamic updates)
 	#entries_container.clear()
 
+func _display():
+	var entries_container = $VBoxContainer/VBoxContainer
 	# Add header
 	var header = HBoxContainer.new()
 	var rank_label = Label.new()
@@ -28,10 +34,11 @@ func _ready():
 	entries_container.add_child(header)
 
 	# Add leaderboard entries
-	for entry in leaderboard_data:
+	for entry in board:
 		var hbox = HBoxContainer.new()
 		var rank = Label.new()
-		rank.text = str(entry["rank"])
+		rank.text = board[entry]
+		print(board[entry])
 		var name = Label.new()
 		name.text = entry["name"]
 		var score = Label.new()
@@ -40,3 +47,5 @@ func _ready():
 		hbox.add_child(name)
 		hbox.add_child(score)
 		entries_container.add_child(hbox)
+
+
