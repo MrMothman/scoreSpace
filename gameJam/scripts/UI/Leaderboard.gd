@@ -7,7 +7,9 @@ var game_API_key = "dev_cf11ee847c324d3c801ce917403eac68"
 var development_mode = false
 var leaderboard_key = "TotGGameKey"
 var session_token = ""
-var score = 101
+var score = 200
+
+var board = []
 
 # HTTP Request node can only handle one call per node
 var auth_http = HTTPRequest.new()
@@ -117,13 +119,17 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 	
 	# Formatting as a leaderboard
 	var leaderboardFormatted = ""
-	for n in json.get_data().items.size():
-		leaderboardFormatted += str(json.get_data().items[n].rank)+str(". ")
-		leaderboardFormatted += str(json.get_data().items[n].player.id)+str(" - ")
-		leaderboardFormatted += str(json.get_data().items[n].score)+str("\n")
+	#for n in json.get_data().items.size():
+	#	leaderboardFormatted += str(json.get_data().items[n].rank)+str(". ")
+	#	leaderboardFormatted += str(json.get_data().items[n].player.id)+str(" - ")
+	#	leaderboardFormatted += str(json.get_data().items[n].score)+str("\n")
 	# Print the formatted leaderboard to the console
 	print(leaderboardFormatted)
 	
+	
+	#for n in json.get_data().items.size():
+	#	board.append([json.get_data().items[n].rank,json.get_data().items[n].score])
+
 	# Clear node
 	leaderboard_http.queue_free()
 
@@ -175,6 +181,18 @@ func _get_player_name():
 	get_name_http.request_completed.connect(_on_player_get_name_request_completed)
 	# Send request
 	get_name_http.request(url, headers, HTTPClient.METHOD_GET, "")
+	
+func _get_this_player_name(id):
+	var data = { "member_id" : id }
+	var url = "https://api.lootlocker.io/game/player/lookup/name"
+	var headers = ["Content-Type: application/json", "x-session-token:"+session_token]
+	
+		# Create a request node for getting the highscore
+	get_name_http = HTTPRequest.new()
+	add_child(get_name_http)
+	get_name_http.request_completed.connect(_on_player_get_this_name_request_completed)
+	# Send request
+	get_name_http.request(url, headers, HTTPClient.METHOD_GET, JSON.stringify(data))
 
 func _on_player_get_name_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
@@ -184,6 +202,15 @@ func _on_player_get_name_request_completed(result, response_code, headers, body)
 	print(json.get_data())
 	# Print player name
 	print(json.get_data().name)
+
+func _on_player_get_this_name_request_completed(result, response_code, headers, body):
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	
+	# Print data
+	print(json.get_data())
+	# Print player name
+	#print(json.get_data().name)
 
 func _on_upload_score_request_completed(result, response_code, headers, body) :
 	var json = JSON.new()

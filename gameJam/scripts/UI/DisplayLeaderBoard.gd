@@ -9,13 +9,17 @@ extends Leaderboard
 
 func _ready():
 	# Reference to the container holding the leaderboard entries
-	var entries_container = $VBoxContainer/VBoxContainer
-	_authentication_request()
-	var leaderboard = leaderboard_data()
-
+	
+	#_authentication_request()
+	#_get_leaderboards()
+	_display()
+	
+	
 	# Clear any existing children (for dynamic updates)
 	#entries_container.clear()
 
+func _display():
+	var entries_container = $VBoxContainer/VBoxContainer
 	# Add header
 	var header = HBoxContainer.new()
 	var rank_label = Label.new()
@@ -30,10 +34,11 @@ func _ready():
 	entries_container.add_child(header)
 
 	# Add leaderboard entries
-	for entry in leaderboard_data:
+	for entry in board:
 		var hbox = HBoxContainer.new()
 		var rank = Label.new()
-		rank.text = str(entry["rank"])
+		rank.text = board[entry]
+		print(board[entry])
 		var name = Label.new()
 		name.text = entry["name"]
 		var score = Label.new()
@@ -44,5 +49,3 @@ func _ready():
 		entries_container.add_child(hbox)
 
 
-func leaderboard_data():
-	

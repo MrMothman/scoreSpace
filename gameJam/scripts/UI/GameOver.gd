@@ -14,7 +14,7 @@ func _on_submit_button_pressed():
 	
 	# Here you can handle the player's name (e.g., save it, display it, etc.)
 	print("Player's name: " + player_name)
-	_change_player_name(player_name)
+	#_change_player_name(player_name)
 	_upload_score(score)
 	_get_leaderboards()
 	
@@ -22,6 +22,8 @@ func _on_submit_button_pressed():
 	# Optionally, you might want to hide or disable the input elements after submission
 	name_input.editable = false
 	submit_button.disabled = true
+	
+	## start next scene function HERE
 	
 	
 
