@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var score = 0
+@export var score = 0
 @onready var sailing_progress = $"../SailingProgress"
 @onready var score_label = $scoreControl/Score
 

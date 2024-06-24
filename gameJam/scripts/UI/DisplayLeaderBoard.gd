@@ -12,7 +12,7 @@ func _ready():
 	var entries_container = $VBoxContainer/VBoxContainer
 
 	# Clear any existing children (for dynamic updates)
-	entries_container.clear()
+	#entries_container.clear()
 
 	# Add header
 	var header = HBoxContainer.new()
