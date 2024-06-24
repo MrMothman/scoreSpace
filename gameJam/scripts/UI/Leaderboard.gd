@@ -119,16 +119,16 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 	
 	# Formatting as a leaderboard
 	var leaderboardFormatted = ""
-	#for n in json.get_data().items.size():
-	#	leaderboardFormatted += str(json.get_data().items[n].rank)+str(". ")
-	#	leaderboardFormatted += str(json.get_data().items[n].player.id)+str(" - ")
-	#	leaderboardFormatted += str(json.get_data().items[n].score)+str("\n")
+	for n in json.get_data().items.size():
+		leaderboardFormatted += str(json.get_data().items[n].rank)+str(". ")
+		leaderboardFormatted += str(json.get_data().items[n].player.id)+str(" - ")
+		leaderboardFormatted += str(json.get_data().items[n].score)+str("\n")
 	# Print the formatted leaderboard to the console
 	print(leaderboardFormatted)
 	
 	
-	#for n in json.get_data().items.size():
-	#	board.append([json.get_data().items[n].rank,json.get_data().items[n].score])
+	for n in json.get_data().items.size():
+		board.append([json.get_data().items[n].rank,json.get_data().items[n].score])
 
 	# Clear node
 	leaderboard_http.queue_free()
