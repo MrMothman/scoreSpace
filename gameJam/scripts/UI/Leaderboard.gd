@@ -24,14 +24,25 @@ func _ready():
 ##############################################
 
 	## modify to menu input
+	## retrieves existing player name?
 	if(Input.is_action_just_pressed("ui_accept")):
 		_get_player_name()
 	
 	## modify to menu input
+	## sets/changes current players name
 	if(Input.is_action_just_pressed("ui_select")):
 		_change_player_name()
 	
-	## might need to copy paste 2 functions here to update scoreboard
+	## modify to menu input
+	## upload score at end of game
+	if(Input.is_action_just_pressed("ui_accept")):
+		_upload_score(score)
+	
+	## modify to menu input
+	## pulls up existing game leaderboard
+	if(Input.is_action_just_pressed("ui_select")):
+		_get_leaderboards()
+
 ##############################################
 ##############################################
 ##############################################
