@@ -1,4 +1,5 @@
 extends Node
+class_name Leaderboard
 
 # Use this game API key if you want to test it with a functioning leaderboard
 # "987dbd0b9e5eb3749072acc47a210996eea9feb0"
@@ -6,7 +7,7 @@ var game_API_key = "prod_4918c27a37d94375ba2d91de12e4edd1"
 var development_mode = true
 var leaderboard_key = "TransportOfGodsLeaderBoardKeys"
 var session_token = ""
-var score = 0
+var score = 2
 
 # HTTP Request node can only handle one call per node
 var auth_http = HTTPRequest.new()
@@ -25,23 +26,23 @@ func _ready():
 
 	## modify to menu input
 	## retrieves existing player name?
-	if(Input.is_action_just_pressed("ui_accept")):
-		_get_player_name()
+#	if(Input.is_action_just_pressed("ui_accept")):
+#		_get_player_name()
 	
 	## modify to menu input
 	## sets/changes current players name
-	if(Input.is_action_just_pressed("ui_select")):
-		_change_player_name()
+	#if(Input.is_action_just_pressed("ui_select")):
+	#	_change_player_name()
 	
 	## modify to menu input
 	## upload score at end of game
-	if(Input.is_action_just_pressed("ui_accept")):
-		_upload_score(score)
+#	if(Input.is_action_just_pressed("ui_accept")):
+#		_upload_score(score)
 	
 	## modify to menu input
 	## pulls up existing game leaderboard
-	if(Input.is_action_just_pressed("ui_select")):
-		_get_leaderboards()
+#	if(Input.is_action_just_pressed("ui_select")):
+#		_get_leaderboards()
 
 ##############################################
 ##############################################
@@ -127,10 +128,10 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 	
 	# Formatting as a leaderboard
 	var leaderboardFormatted = ""
-	for n in json.get_data().items.size():
-		leaderboardFormatted += str(json.get_data().items[n].rank)+str(". ")
-		leaderboardFormatted += str(json.get_data().items[n].player.id)+str(" - ")
-		leaderboardFormatted += str(json.get_data().items[n].score)+str("\n")
+	#for n in json.get_data().items.size():
+	#	leaderboardFormatted += str(json.get_data().items[n].rank)+str(". ")
+	#	leaderboardFormatted += str(json.get_data().items[n].player.id)+str(" - ")
+	#	leaderboardFormatted += str(json.get_data().items[n].score)+str("\n")
 	# Print the formatted leaderboard to the console
 	print(leaderboardFormatted)
 	
@@ -152,11 +153,11 @@ func _upload_score(score: int):
 #############################################
 ##       setup name change interface       ##
 #############################################
-func _change_player_name():
+func _change_player_name(new_name):
 	print("Changing player name")
 	
 	# use this variable for setting the name of the player
-	var player_name = "newName"
+	var player_name = new_name
 	
 	var data = { "name": str(player_name) }
 	var url =  "https://api.lootlocker.io/game/player/name"
@@ -199,7 +200,7 @@ func _on_player_get_name_request_completed(result, response_code, headers, body)
 	# Print data
 	print(json.get_data())
 	# Print player name
-	print(json.get_data().name)
+	#print(json.get_data().name)
 
 func _on_upload_score_request_completed(result, response_code, headers, body) :
 	var json = JSON.new()
