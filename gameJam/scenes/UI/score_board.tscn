@@ -24,5 +24,5 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 28
-text = "Score: 800"
+text = "Score:"
 uppercase = true
