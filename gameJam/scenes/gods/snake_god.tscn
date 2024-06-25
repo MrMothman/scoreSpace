@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1orw4ajf73bx"]
+
+[ext_resource type="Script" path="res://scripts/Gods/usableGod.gd" id="1_800ur"]
+[ext_resource type="PackedScene" uid="uid://dh0d00qslh10a" path="res://scenes/god.tscn" id="2_71r57"]
+[ext_resource type="Texture2D" uid="uid://dq7ry7cd77r7a" path="res://assets/gods/SnakeGod.png" id="3_7pc83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hti07"]
+size = Vector2(50, 63)
+
+[node name="snakeGod" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 49
+script = ExtResource("1_800ur")
+speed = 75
+
+[node name="god" parent="." instance=ExtResource("2_71r57")]
+godImage = ExtResource("3_7pc83")
+timeMov = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_hti07")
+
+[connection signal="card_entered" from="god" to="." method="_on_god_card_entered"]
+[connection signal="change_direction" from="god" to="." method="_on_god_change_direction"]

@@ -61,6 +61,7 @@ func _input(event):
 	if event.is_action_pressed("mouse_click") && current_selected_card >= 0:
 		var card: UsableCard = remove_card(current_selected_card)
 		current_selected_card = -1
+		transform_sent_card(card)
 		card_activated.emit(card)
 
 
@@ -92,3 +93,8 @@ func transform_unhighlighted_card(card: UsableCard):
 	card.z_index = 0
 	card.scale.x = 1
 	card.scale.y = 1
+	
+func transform_sent_card(card: UsableCard):
+	card.scale.x = .50
+	card.scale.y = .50
+	

@@ -1,3 +1,4 @@
+@tool
 class_name Card extends Node2D
 
 @onready var image = $cardImage/image

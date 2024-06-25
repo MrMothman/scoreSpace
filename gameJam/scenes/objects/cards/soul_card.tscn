@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmw1rwusy4pff"]
+
+[ext_resource type="Script" path="res://scripts/objects/Card/usable_card.gd" id="1_m4aqv"]
+[ext_resource type="PackedScene" uid="uid://kac6vgxq6nhd" path="res://scenes/objects/cards/card.tscn" id="2_yvvmt"]
+[ext_resource type="Texture2D" uid="uid://c13w471y67mla" path="res://assets/cards/cardImages/soulSymbol.png" id="3_8xm5t"]
+[ext_resource type="Texture2D" uid="uid://m1pdtnactoc" path="res://assets/cards/ResourceTypes/GreenResource.png" id="4_vb81q"]
+
+[node name="SoulCard" type="Node2D"]
+script = ExtResource("1_m4aqv")
+
+[node name="card" parent="." instance=ExtResource("2_yvvmt")]
+card_name = "Soul"
+cardImageTexture = ExtResource("3_8xm5t")
+resourceImageTexture = ExtResource("4_vb81q")
+description = "\"Soul that has faith it a soul at peace\""
+
+[connection signal="mouse_entered" from="card" to="." method="_on_card_mouse_entered"]
+[connection signal="mouse_exited" from="card" to="." method="_on_card_mouse_exited"]

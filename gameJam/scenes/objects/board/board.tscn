@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://hnijtcifq8as"]
+[gd_scene load_steps=10 format=3 uid="uid://hnijtcifq8as"]
 
 [ext_resource type="Script" path="res://scripts/objects/board.gd" id="1_kapq7"]
 [ext_resource type="Texture2D" uid="uid://o51374boclu3" path="res://assets/cards/board/board.png" id="2_bmqni"]
 [ext_resource type="PackedScene" uid="uid://bb67kpkgcgu0k" path="res://scenes/objects/cards/hand.tscn" id="2_sarkp"]
 [ext_resource type="PackedScene" uid="uid://s0y6is5xtdm2" path="res://scenes/objects/cards/card_holder.tscn" id="4_4qule"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cidr"]
-size = Vector2(959.5, 545)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lvlt"]
 size = Vector2(959, 54)
@@ -70,13 +67,6 @@ script = ExtResource("1_kapq7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="NoneBoard" type="Area2D" parent="CanvasLayer"]
-collision_layer = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/NoneBoard"]
-position = Vector2(480.25, 272.5)
-shape = SubResource("RectangleShape2D_8cidr")
-
 [node name="subBoard" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -130,6 +120,14 @@ offset_right = 520.0
 offset_bottom = 129.0
 text = "Remove Card"
 
+[node name="soul" type="Button" parent="CanvasLayer"]
+offset_left = 87.0
+offset_top = 154.0
+offset_right = 162.0
+offset_bottom = 185.0
+text = "add Soul
+"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_uwibw")
@@ -141,3 +139,4 @@ libraries = {
 [connection signal="button_down" from="CanvasLayer/Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="CanvasLayer/Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="CanvasLayer/delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="CanvasLayer/soul" to="." method="_on_soul_pressed"]

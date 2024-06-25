@@ -2,6 +2,7 @@ extends Node
 
 const WORSHIP_CARD = preload("res://scenes/objects/cards/worship_card.tscn")
 const COAL_CARD = preload("res://scenes/objects/cards/coal_card.tscn")
+const SOUL_CARD = preload("res://scenes/objects/cards/soul_card.tscn")
 
 @onready var hand = $CanvasLayer/subBoard/hand
 @onready var ap = $AnimationPlayer
@@ -10,10 +11,15 @@ const COAL_CARD = preload("res://scenes/objects/cards/coal_card.tscn")
 var is_open: bool =  false
 var is_closed: bool =  true
 var is_in_subBoard: bool = false
+var is_small = false
 
 var held_card: UsableCard
 
 signal click_with_card(card)
+
+func _ready():
+	pass
+
 
 func _on_button_2_button_down():
 	var worshipCard = WORSHIP_CARD.instantiate()
@@ -31,6 +37,7 @@ func _on_exiting_mouse_entered():
 		is_closed = true
 		is_open = false
 
+
 func _on_sub_board_mouse_entered():
 	if is_closed && !ap.is_playing():
 		ap.play("mouse_enters")
@@ -39,7 +46,7 @@ func _on_sub_board_mouse_entered():
 		is_open = true
 
 func _on_hand_card_activated(card: UsableCard):
-	print(card)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	add_card_to_holder(card)
 	
 func _instantiate_card(card_name: String)-> UsableCard:
@@ -48,6 +55,8 @@ func _instantiate_card(card_name: String)-> UsableCard:
 		returnCard = WORSHIP_CARD.instantiate()
 	elif card_name == "Coal":
 		returnCard = COAL_CARD.instantiate()
+	elif card_name == "Soul":
+		returnCard = SOUL_CARD.instantiate()
 	return returnCard
 	
 func add_card_to_holder(card:UsableCard):
@@ -66,9 +75,11 @@ func return_card_from_holder():
 	child.queue_free()
 	
 func remove_card_from_holder():
-	var child = card_holder.get_child(0)
-	card_holder.remove_child(child)
-	child.queue_free()
+	if does_holder_have_card():	
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		var child = card_holder.get_child(0)
+		card_holder.remove_child(child)
+		child.queue_free()
 	
 	
 func add_card_to_hand(card_name: String):
@@ -78,3 +89,10 @@ func add_card_to_hand(card_name: String):
 
 func _on_delete_pressed():
 	remove_card_from_holder()
+	
+	
+	
+
+
+func _on_soul_pressed():
+	add_card_to_hand("Soul")

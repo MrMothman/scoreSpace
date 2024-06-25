@@ -1,12 +1,12 @@
 extends CharacterBody2D
-class_name god_movement
+class_name UsableGod
 
 var current_states = enemy_states.MOVE_DR
 enum enemy_states {STOP,MOVE_R,MOVE_L,MOVE_D,MOVE_U,MOVE_DR,MOVE_DL,MOVE_UR,MOVE_UL}
-
 @export var speed = 10
 var dir
 
+signal card_entered(body:Node2D)
 
 
 func _physics_process(delta):
@@ -30,10 +30,8 @@ func _physics_process(delta):
 			move_up_right()
 		enemy_states.STOP:
 			move_stop()
-		
 	
 	move_and_slide()
-
 
 func random_generation():
 	dir = randi() % 12
@@ -66,7 +64,7 @@ func random_direction():
 		11:
 			current_states = enemy_states.STOP
 
-
+#region direction
 func move_right():
 	velocity = Vector2.RIGHT * speed
 	#$anim.play("move_right")
@@ -101,3 +99,10 @@ func move_up_left():
 	
 func move_stop():
 	velocity = Vector2.ZERO
+#endregion
+
+func _on_god_change_direction():
+	random_generation()
+	
+func _on_god_card_entered(body):
+	card_entered.emit(body)
